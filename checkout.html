@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - Fashion Store</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Jost', sans-serif;
+      background-color: #f9f9f9;
+    }
+
+    .checkout-header {
+      background-color: #f8f9fa;
+      padding: 1.5rem 0;
+      text-align: center;
+    }
+
+    .payment-section {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .qr-code img {
+      max-width: 200px;
+      margin: 1rem auto;
+      display: block;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+    }
+
+    .form-check-input:checked {
+      background-color: #007bff;
+      border-color: #007bff;
+    }
+
+    .place-order-btn {
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+
+    .btn a {
+      color: white;
+      text-decoration: none;
+    }
+
+  </style>
+</head>
+<body>
+  <!-- Checkout Header -->
+  <header class="checkout-header">
+    <h1 class="fw-bold">Proceed to Checkout</h1>
+    <p class="text-muted">Complete your purchase with your preferred payment method.</p>
+  </header>
+
+  <!-- Checkout Form -->
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <!-- Payment Methods -->
+        <div class="payment-section">
+          <h4 class="mb-4">Select Payment Method</h4>
+
+          <!-- Cash on Delivery -->
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="radio" name="paymentMethod" id="cod" checked>
+            <label class="form-check-label" for="cod">
+              <strong>Cash on Delivery (COD)</strong>
+            </label>
+          </div>
+
+          <!-- QR Code Payment -->
+          <div class="form-check mb-4">
+            <input class="form-check-input" type="radio" name="paymentMethod" id="qr">
+            <label class="form-check-label" for="qr">
+              <strong>Pay via QR Code</strong>
+            </label>
+
+            <!-- QR Code Section (Initially Hidden) -->
+            <div class="qr-code" id="qrCodeSection" style="display: none;">
+              <p class="text-center text-muted">Scan the QR Code below to complete your payment:</p>
+              <img src="qr.jpg" alt="QR Code" id="qrImage">
+            </div>
+          </div>
+
+          <!-- Confirm & Place Order -->
+          <div class="text-center">
+            <button class="btn btn-primary w-50 place-order-btn"><a href="payment.html">Place Order</a></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="py-3 bg-dark text-light text-center">
+    <p>&copy; 2024 Fashion Store. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Bootstrap & JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Show QR Code Section when QR Payment is selected
+    document.getElementById('qr').addEventListener('change', function () {
+      document.getElementById('qrCodeSection').style.display = 'block';
+    });
+
+    // Hide QR Code Section if COD is selected
+    document.getElementById('cod').addEventListener('change', function () {
+      document.getElementById('qrCodeSection').style.display = 'none';
+    });
+  </script>
+</body>
+</html>
